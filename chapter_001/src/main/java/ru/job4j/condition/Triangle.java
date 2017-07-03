@@ -31,22 +31,34 @@ public class Triangle {
 		this.c = c;
 	}
 	/**
+	* Distance from one point to another.
+	* @param that - that.
+	* @return distance.
+	*/
+	public double distance(Point that) {
+		double sx = this.x - that.x;
+		double sy = this.y - that.y;
+		return Math.sqrt(sx*sx + sy*sy);
+	}
+    /**
+	* result.	
+	*/
+    private double result = -1;
+	/**
 	 * Check for area of triangle.
 	 * @return area.
 	 */
-
 	public double area() {
-        double ab = Math.sqrt((a.getX() - b.getX()) * (a.getX() - b.getX()) + (a.getY() - b.getY()) * (a.getY() - b.getY()));
-        double ac = Math.sqrt((a.getX() - c.getX()) * (a.getX() - c.getX()) + (a.getY() - c.getY()) * (a.getY() - c.getY()));
-        double bc = Math.sqrt((b.getX() - c.getX()) * (b.getX() - c.getX()) + (b.getY() - c.getY()) * (b.getY() - c.getY()));
-		boolean go = true;
-		if (ab + ac <= bc || ab + ac <= bc || ab + ac <= bc) {
-            go = false;
-        } else {
-		double p = (ab + bc + ac) / 2.0;
-        return Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
-	}
+		if (result == -1) {
+			double ab = a.distance(b);
+			double bc = b.distance(c);
+			double ac = a.distance(c);
 
+		/*if (ab + ac <= bc || ab + bc <= ac || bc + ac <= ab)*/    
 
+			double p = (ab + bc + ac) / 2.0;
+			double result = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
+        }
+		return result;
  }
 }
