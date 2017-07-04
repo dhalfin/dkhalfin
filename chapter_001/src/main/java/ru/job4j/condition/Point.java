@@ -42,9 +42,9 @@ public class Point {
 	 * Check the point in function.
      * @param a - a.
 	 * @param b - b.
-	 * @return y
+	 * @return y.
 	 */
      public boolean is(int a, int b) {
-       return y == a * x + b;
+       return this.y == a * this.x + b;
  }
 }

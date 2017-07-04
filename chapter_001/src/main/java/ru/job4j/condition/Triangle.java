@@ -38,23 +38,20 @@ public class Triangle {
 	public double distance(Point that) {
 		double sx = this.x - that.x;
 		double sy = this.y - that.y;
-		return Math.sqrt(sx*sx + sy*sy);
+		return Math.sqrt(sx * sx + sy * sy);
 	}
-    /**
-	* result.	
-	*/
-    private double result = -1;
 	/**
 	 * Check for area of triangle.
 	 * @return area.
 	 */
 	public double area() {
+		double result = -1;
 		if (result == -1) {
 			double ab = a.distance(b);
 			double bc = b.distance(c);
 			double ac = a.distance(c);
 
-		/*if (ab + ac <= bc || ab + bc <= ac || bc + ac <= ab)*/    
+		/*if (ab + ac <= bc || ab + bc <= ac || bc + ac <= ab)*/
 
 			double p = (ab + bc + ac) / 2.0;
 			double result = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
